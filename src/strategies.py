@@ -3,6 +3,7 @@ import tensorflow_hub as hub
 import tensorflow_text
 import logging
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
@@ -86,10 +87,126 @@ class USELogisticRegressionRandomStrategy(LabelingStrategy):
     
     def predict(self, _):
         logging.debug("Training model with labeled examples for prediction")
-        clf = LogisticRegression().fit(self.text_embeddings[labeled_indices]. self.labels)
+        clf = LogisticRegression(random_state=42).fit(self.text_embeddings[self.labeled_indices], self.labels)
 
         logging.debug("Predicting validation texts")
         pred = clf.predict(self.eval_text_embeddings)
 
         return pred
 
+
+class USELogisticRegressionLeastConfidentStrategy(LabelingStrategy):
+    def __init__(self, texts, label_per_iteration=10, use=None):
+        super().__init__(texts, label_per_iteration)
+
+        if use is None:
+            logging.info("Loading USE")
+            self.use = hub.load("https://tfhub.dev/google/universal-sentence-encoder-multilingual/3")
+        else:
+            self.use = use
+
+        self.labeled_indices = []
+        self.labels = []
+        self.latest_clf = None
+        
+        self.text_embeddings = None
+        self.eval_text_embeddings = None
+
+
+    def setup_labeling(self):
+        logging.debug("Embedding texts for USE Least Confident strategy")
+        self.text_embeddings = self.use(self.texts).numpy()
+
+    def setup_prediction(self, eval_texts):
+        logging.debug("Embedding texts for USE random strategy (prediction only)")
+        self.eval_text_embeddings = self.use(eval_texts).numpy()
+
+    def get_next_examples(self):
+        unlabeled_indices = np.setdiff1d(
+            np.arange(len(self.texts)), self.labeled_indices
+        )
+
+        if len(unlabeled_indices) <= self.label_per_iteration:
+            return unlabeled_indices
+
+
+        max_conf = self.latest_clf.predict_proba(self.text_embeddings[unlabeled_indices]).max(axis=1)
+        next_indices = unlabeled_indices[np.argsort(max_conf)[:self.label_per_iteration]]
+
+        return next_indices
+    
+    def add_labels(self, indices, labels):
+        self.labeled_indices += indices
+        self.labels += labels
+
+        self.latest_clf = LogisticRegression(random_state=42).fit(self.text_embeddings[self.labeled_indices], self.labels)
+
+    def predict(self, _):
+        logging.debug("Predicting validation texts")
+        pred = self.latest_clf.predict(self.eval_text_embeddings)
+
+        return pred
+
+
+class USELogisticRegressionEnsembleDisagreementStrategy(LabelingStrategy):
+    def __init__(self, texts, label_per_iteration=10, use=None):
+        super().__init__(texts, label_per_iteration)
+
+        if use is None:
+            logging.info("Loading USE")
+            self.use = hub.load("https://tfhub.dev/google/universal-sentence-encoder-multilingual/3")
+        else:
+            self.use = use
+
+        self.labeled_indices = []
+        self.labels = []
+        self.latest_ensemble = []
+        self.latests_clf = None
+        
+        self.text_embeddings = None
+        self.eval_text_embeddings = None
+
+
+    def setup_labeling(self):
+        logging.debug("Embedding texts for USE Least Confident strategy")
+        self.text_embeddings = self.use(self.texts).numpy()
+
+    def setup_prediction(self, eval_texts):
+        logging.debug("Embedding texts for USE random strategy (prediction only)")
+        self.eval_text_embeddings = self.use(eval_texts).numpy()
+
+    def get_next_examples(self):
+        unlabeled_indices = np.setdiff1d(
+            np.arange(len(self.texts)), self.labeled_indices
+        )
+
+        if len(unlabeled_indices) <= self.label_per_iteration:
+            return unlabeled_indices
+
+        first_clf_preds = self.latest_ensemble[0].predict_proba(self.text_embeddings[unlabeled_indices])[:, 1]
+        second_clf_preds = self.latest_ensemble[1].predict_proba(self.text_embeddings[unlabeled_indices])[:, 1]
+        diffs = abs(first_clf_preds - second_clf_preds)
+        next_indices = unlabeled_indices[np.argsort(diffs * -1)[:self.label_per_iteration]]
+
+        return next_indices
+    
+    def add_labels(self, indices, labels):
+        self.labeled_indices += indices
+        self.labels += labels
+
+        first_clf_indices, second_clf_indices, first_clf_labels, second_clf_labels = train_test_split(
+            self.labeled_indices, self.labels, test_size=0.5, random_state=42
+        )
+
+
+        first_clf = LogisticRegression(random_state=42).fit(self.text_embeddings[first_clf_indices], first_clf_labels)
+        second_clf = LogisticRegression(random_state=42).fit(self.text_embeddings[second_clf_indices], second_clf_labels)
+
+        self.latest_clf = LogisticRegression(random_state=42).fit(self.text_embeddings[self.labeled_indices], self.labels)
+        self.latest_ensemble = [first_clf, second_clf]
+
+    def predict(self, _):
+        logging.debug("Predicting validation texts")
+        pred = self.latest_clf.predict(self.eval_text_embeddings)
+
+        return pred

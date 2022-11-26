@@ -1,5 +1,6 @@
 import logging
 import time
+import json
 from sklearn.metrics import accuracy_score
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
@@ -63,10 +64,10 @@ def run_experiment(
         logs["labeling_steps"].append({
             "num_labeled": len(label_indices),
             "time_taken": iteration_time,
-            "accuracy": iteration_acac
+            "accuracy": iteration_acc
         })
 
-        iteration_labeled_examples += len(label_indices)
+        total_labeled_examples += len(label_indices)
     
     logging.info("Done with labeling, running post_labeling process")
     start_time = time.time()
@@ -75,7 +76,7 @@ def run_experiment(
     logs["post_time"] = post_labeling_time
 
     logging.info("Running final prediction")
-    final_pred = strategy.post_labeling_predict(eval_texts)
+    final_pred = strategy.post_labeling_predict(eval_x)
     final_acc = accuracy_score(eval_y, final_pred)
 
     logs["final_accuracy"] = final_acc
