@@ -1,0 +1,1009 @@
+{
+    "experiment_name": "USE+LR Random 20",
+    "dataset_name": "SST",
+    "pre_time": 6.5235395431518555,
+    "labeling_steps": [
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0003643035888671875,
+            "accuracy": 0.53525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0032291412353515625,
+            "accuracy": 0.61575
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008754730224609375,
+            "accuracy": 0.61225
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0020401477813720703,
+            "accuracy": 0.657
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012745857238769531,
+            "accuracy": 0.672
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009338855743408203,
+            "accuracy": 0.69325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0025577545166015625,
+            "accuracy": 0.71775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006849765777587891,
+            "accuracy": 0.72425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007884502410888672,
+            "accuracy": 0.731
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008251667022705078,
+            "accuracy": 0.7265
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001676321029663086,
+            "accuracy": 0.7375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006923675537109375,
+            "accuracy": 0.74275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011444091796875,
+            "accuracy": 0.74425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008952617645263672,
+            "accuracy": 0.739
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008425712585449219,
+            "accuracy": 0.7395
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007154941558837891,
+            "accuracy": 0.747
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007600784301757812,
+            "accuracy": 0.7495
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007131099700927734,
+            "accuracy": 0.75325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009400844573974609,
+            "accuracy": 0.7525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.004168987274169922,
+            "accuracy": 0.753
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007793903350830078,
+            "accuracy": 0.75825
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0029594898223876953,
+            "accuracy": 0.757
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007884502410888672,
+            "accuracy": 0.75425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007352828979492188,
+            "accuracy": 0.7545
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.007063865661621094,
+            "accuracy": 0.75925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007627010345458984,
+            "accuracy": 0.761
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008141994476318359,
+            "accuracy": 0.7665
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002236604690551758,
+            "accuracy": 0.7655
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010848045349121094,
+            "accuracy": 0.76875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008602142333984375,
+            "accuracy": 0.77075
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007982254028320312,
+            "accuracy": 0.774
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008924007415771484,
+            "accuracy": 0.7765
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014967918395996094,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008037090301513672,
+            "accuracy": 0.7775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008165836334228516,
+            "accuracy": 0.77825
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0027747154235839844,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009758472442626953,
+            "accuracy": 0.77525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.003667116165161133,
+            "accuracy": 0.77775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0024073123931884766,
+            "accuracy": 0.78
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009400844573974609,
+            "accuracy": 0.778
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009000301361083984,
+            "accuracy": 0.781
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008335113525390625,
+            "accuracy": 0.7815
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008409023284912109,
+            "accuracy": 0.77975
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007946491241455078,
+            "accuracy": 0.77625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008995532989501953,
+            "accuracy": 0.775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012395381927490234,
+            "accuracy": 0.7775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009884834289550781,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007984638214111328,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008144378662109375,
+            "accuracy": 0.78
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008864402770996094,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0032901763916015625,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009524822235107422,
+            "accuracy": 0.77725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010411739349365234,
+            "accuracy": 0.778
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0036919116973876953,
+            "accuracy": 0.7765
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008378028869628906,
+            "accuracy": 0.7785
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008454322814941406,
+            "accuracy": 0.779
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008985996246337891,
+            "accuracy": 0.7795
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008788108825683594,
+            "accuracy": 0.779
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009922981262207031,
+            "accuracy": 0.78175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.006317138671875,
+            "accuracy": 0.7805
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009276866912841797,
+            "accuracy": 0.7815
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001127004623413086,
+            "accuracy": 0.77875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013549327850341797,
+            "accuracy": 0.78025
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009112358093261719,
+            "accuracy": 0.77875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008995532989501953,
+            "accuracy": 0.781
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010678768157958984,
+            "accuracy": 0.78
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008978843688964844,
+            "accuracy": 0.7795
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0017173290252685547,
+            "accuracy": 0.77975
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010318756103515625,
+            "accuracy": 0.7835
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011370182037353516,
+            "accuracy": 0.781
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008940696716308594,
+            "accuracy": 0.78175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009813308715820312,
+            "accuracy": 0.78325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010905265808105469,
+            "accuracy": 0.78325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010037422180175781,
+            "accuracy": 0.78475
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000989675521850586,
+            "accuracy": 0.78425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010366439819335938,
+            "accuracy": 0.78475
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009739398956298828,
+            "accuracy": 0.78475
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012624263763427734,
+            "accuracy": 0.78375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010688304901123047,
+            "accuracy": 0.78575
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014271736145019531,
+            "accuracy": 0.78725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0047931671142578125,
+            "accuracy": 0.78675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011026859283447266,
+            "accuracy": 0.7845
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009229183197021484,
+            "accuracy": 0.7845
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009677410125732422,
+            "accuracy": 0.78675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012068748474121094,
+            "accuracy": 0.7875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010027885437011719,
+            "accuracy": 0.788
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009205341339111328,
+            "accuracy": 0.7875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002656698226928711,
+            "accuracy": 0.788
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001478433609008789,
+            "accuracy": 0.79025
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009362697601318359,
+            "accuracy": 0.79025
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009284019470214844,
+            "accuracy": 0.78975
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.006754398345947266,
+            "accuracy": 0.7905
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000978231430053711,
+            "accuracy": 0.79
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.003275156021118164,
+            "accuracy": 0.79225
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0023610591888427734,
+            "accuracy": 0.79075
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002098560333251953,
+            "accuracy": 0.7915
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.010175943374633789,
+            "accuracy": 0.79
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.00316619873046875,
+            "accuracy": 0.79125
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009987354278564453,
+            "accuracy": 0.79175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010101795196533203,
+            "accuracy": 0.7915
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010094642639160156,
+            "accuracy": 0.793
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009739398956298828,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010180473327636719,
+            "accuracy": 0.79225
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001560211181640625,
+            "accuracy": 0.79125
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010876655578613281,
+            "accuracy": 0.79175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001102447509765625,
+            "accuracy": 0.793
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0016579627990722656,
+            "accuracy": 0.79125
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012462139129638672,
+            "accuracy": 0.7895
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010497570037841797,
+            "accuracy": 0.792
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014026165008544922,
+            "accuracy": 0.79175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013434886932373047,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000985860824584961,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0019474029541015625,
+            "accuracy": 0.7945
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010521411895751953,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010883808135986328,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010876655578613281,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0009844303131103516,
+            "accuracy": 0.79175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010082721710205078,
+            "accuracy": 0.79225
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001650094985961914,
+            "accuracy": 0.79075
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010302066802978516,
+            "accuracy": 0.792
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011339187622070312,
+            "accuracy": 0.7905
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.00122833251953125,
+            "accuracy": 0.7925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001117706298828125,
+            "accuracy": 0.79175
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012962818145751953,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001049041748046875,
+            "accuracy": 0.7925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001132965087890625,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0028052330017089844,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012743473052978516,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011749267578125,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001407623291015625,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010828971862792969,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011668205261230469,
+            "accuracy": 0.795
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011386871337890625,
+            "accuracy": 0.7925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013279914855957031,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0018200874328613281,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0017762184143066406,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012416839599609375,
+            "accuracy": 0.7925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0018584728240966797,
+            "accuracy": 0.79325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0010292530059814453,
+            "accuracy": 0.794
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.004302978515625,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011105537414550781,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012004375457763672,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014057159423828125,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011644363403320312,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011317729949951172,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.004594087600708008,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011017322540283203,
+            "accuracy": 0.7945
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011548995971679688,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011785030364990234,
+            "accuracy": 0.79275
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0015108585357666016,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014009475708007812,
+            "accuracy": 0.79525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011818408966064453,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0020246505737304688,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001214742660522461,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012364387512207031,
+            "accuracy": 0.793
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0016889572143554688,
+            "accuracy": 0.79375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013396739959716797,
+            "accuracy": 0.7935
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012590885162353516,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.005942821502685547,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013360977172851562,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012638568878173828,
+            "accuracy": 0.793
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013480186462402344,
+            "accuracy": 0.7925
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001199483871459961,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001322031021118164,
+            "accuracy": 0.79525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012826919555664062,
+            "accuracy": 0.79425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012314319610595703,
+            "accuracy": 0.794
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012388229370117188,
+            "accuracy": 0.795
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012438297271728516,
+            "accuracy": 0.79575
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013744831085205078,
+            "accuracy": 0.79525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001352548599243164,
+            "accuracy": 0.7955
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012829303741455078,
+            "accuracy": 0.79575
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0018761157989501953,
+            "accuracy": 0.79675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012450218200683594,
+            "accuracy": 0.7965
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013506412506103516,
+            "accuracy": 0.79575
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012776851654052734,
+            "accuracy": 0.796
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001188039779663086,
+            "accuracy": 0.7955
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012881755828857422,
+            "accuracy": 0.79675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012710094451904297,
+            "accuracy": 0.79625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014138221740722656,
+            "accuracy": 0.7965
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0014066696166992188,
+            "accuracy": 0.7955
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0020487308502197266,
+            "accuracy": 0.79525
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001285552978515625,
+            "accuracy": 0.7955
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013108253479003906,
+            "accuracy": 0.795
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0018336772918701172,
+            "accuracy": 0.796
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013089179992675781,
+            "accuracy": 0.79625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013239383697509766,
+            "accuracy": 0.79675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0015721321105957031,
+            "accuracy": 0.79725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.004025697708129883,
+            "accuracy": 0.79625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0019576549530029297,
+            "accuracy": 0.79675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.00136566162109375,
+            "accuracy": 0.79625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0015017986297607422,
+            "accuracy": 0.79675
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002507448196411133,
+            "accuracy": 0.79725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.007744789123535156,
+            "accuracy": 0.7975
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0015954971313476562,
+            "accuracy": 0.79875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002213716506958008,
+            "accuracy": 0.79775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0016977787017822266,
+            "accuracy": 0.79775
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0020630359649658203,
+            "accuracy": 0.7975
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0012578964233398438,
+            "accuracy": 0.79725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0013051033020019531,
+            "accuracy": 0.7985
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0016622543334960938,
+            "accuracy": 0.79825
+        }
+    ],
+    "post_time": 1.5735626220703125e-05,
+    "final_accuracy": 0.79825
+}
