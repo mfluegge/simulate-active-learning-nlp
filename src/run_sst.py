@@ -3,10 +3,11 @@ from strategies import USELogisticRegressionLeastConfidentStrategy#
 from strategies import USELogisticRegressionEnsembleDisagreementStrategy
 from strategies import USELogisticRegressionInformationDensityStrategy
 from strategies import USELogisticRegressionLeastConfidentDiverseKMeansStrategy
+from strategies import SetFitRandomStrategy
 from experiments import run_experiment
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_sp
+from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
     sst_data = pd.read_csv("../datasets/sst_train.tsv", sep="\t")
@@ -144,8 +145,8 @@ if __name__ == "__main__":
         labels,
         eval_x,
         eval_y,
-        output_path="../results/sst_setfit_small_20_R=20.json",
-        experiment_name="SetFit Small 20 R=20",
+        output_path="../results/sst_setfit_big_20_R=20_low_lr.json",
+        experiment_name="SetFit Small 20 R=20 LR=2e-5",
         dataset_name="SST",
-        max_labeled_data=500
+        max_labeled_data=800
     )

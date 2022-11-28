@@ -24,10 +24,10 @@ class LabelingStrategy:
         random_indices = np.random.choice(np.arange(len(self.texts)), size=self.label_per_iteration, replace=False)
         return random_indices
     
-    def setup_labeling(self):
+    def setup_labeling(self, **args):
         pass
     
-    def setup_prediction(self):
+    def setup_prediction(self, eval_x):
         pass
     
     def get_next_examples(self):
@@ -362,7 +362,7 @@ class SetFitRandomStrategy(LabelingStrategy):
 
         if sent_trf is None:
             logging.info("Loading SentenceTransformer")
-            self.sent_trf = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+            self.sent_trf = SentenceTransformer("sentence-transformers/paraphrase-mpnet-base-v2")
         else:
             self.sent_trf = sent_trf 
 
@@ -396,7 +396,7 @@ class SetFitRandomStrategy(LabelingStrategy):
     def predict(self, eval_texts):
         logging.debug("Training SetFit model with labeled examples for prediction")
         logging.debug("Cloning sentence transformer model")
-        model = deepcopy(self.sent_trf)
+        model = SentenceTransformer("sentence-transformers/paraphrase-mpnet-base-v2")#deepcopy(self.sent_trf)
 
         logging.debug("Generating training examples for SetFit model")
         train_texts = [self.texts[i] for i in self.labeled_indices]
@@ -414,8 +414,8 @@ class SetFitRandomStrategy(LabelingStrategy):
         model.fit(
             train_objectives=[(train_dataloader, train_loss)],
             epochs=1,
-            optimizer_params={"lr": 1e-3},
-            warmup_steps=int(len(train_loader) * 0.1),
+            optimizer_params={"lr": 2e-5},
+            warmup_steps=int(len(train_dataloader) * 0.1),
         )
 
         model.eval()
@@ -449,9 +449,9 @@ def _make_setfit_examples(texts, labels, R=20):
             other_in_class_texts = [t for i, t in enumerate(class_texts) if i != text_in_class_ix]
             
             positives = np.random.choice(other_in_class_texts, size=R, replace=len(other_in_class_texts) < R)
-            training_examples += [InputExample(text, other_text, label=1.0) in positives]
+            training_examples += [InputExample(texts=[text, other_text], label=1.0) for other_text in positives]
         
             negatives = np.random.choice(outside_class_texts, size=R, replace=len(outside_class_texts) < R)
-            training_examples += [InputExample(text, other_text, label=0.0) in negatives]
+            training_examples += [InputExample(texts=[text, other_text], label=0.0) for other_text in negatives]
 
     return training_examples

@@ -1,0 +1,59 @@
+{
+    "experiment_name": "SetFit Small 20 R=20",
+    "dataset_name": "SST",
+    "pre_time": 6.079673767089844e-05,
+    "labeling_steps": [
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0003535747528076172,
+            "accuracy": 0.6085
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008361339569091797,
+            "accuracy": 0.612
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008819103240966797,
+            "accuracy": 0.64875
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006654262542724609,
+            "accuracy": 0.71325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006737709045410156,
+            "accuracy": 0.69825
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008947849273681641,
+            "accuracy": 0.68625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006990432739257812,
+            "accuracy": 0.7365
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007696151733398438,
+            "accuracy": 0.691
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000946044921875,
+            "accuracy": 0.55625
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.001512765884399414,
+            "accuracy": 0.55475
+        }
+    ],
+    "post_time": 1.430511474609375e-06,
+    "final_accuracy": 0.70575
+}

@@ -1,0 +1,109 @@
+{
+    "experiment_name": "SetFit Small 20 R=10",
+    "dataset_name": "SST",
+    "pre_time": 7.2479248046875e-05,
+    "labeling_steps": [
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0004355907440185547,
+            "accuracy": 0.694
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008723735809326172,
+            "accuracy": 0.715
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0018644332885742188,
+            "accuracy": 0.6865
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.005388021469116211,
+            "accuracy": 0.6535
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007002353668212891,
+            "accuracy": 0.7425
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007300376892089844,
+            "accuracy": 0.55475
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007176399230957031,
+            "accuracy": 0.72825
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006816387176513672,
+            "accuracy": 0.7125
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0060923099517822266,
+            "accuracy": 0.74325
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.002402782440185547,
+            "accuracy": 0.7435
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007114410400390625,
+            "accuracy": 0.7485
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007319450378417969,
+            "accuracy": 0.76375
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0006909370422363281,
+            "accuracy": 0.75075
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000759124755859375,
+            "accuracy": 0.55475
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007562637329101562,
+            "accuracy": 0.74225
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007159709930419922,
+            "accuracy": 0.71725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0008559226989746094,
+            "accuracy": 0.76
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0011909008026123047,
+            "accuracy": 0.76725
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.0007462501525878906,
+            "accuracy": 0.744
+        },
+        {
+            "num_labeled": 20,
+            "time_taken": 0.000858306884765625,
+            "accuracy": 0.77525
+        }
+    ],
+    "post_time": 2.1457672119140625e-06,
+    "final_accuracy": 0.55475
+}
