@@ -6,10 +6,14 @@ import numpy as np
 if __name__ == "__main__":
     results_paths = [
         "../results/sst_use_random_20.json",
+        #"../results/sst_use_least_confident_1.json",
         #"../results/sst_use_least_confident_10.json",
         "../results/sst_use_least_confident_20.json",
         #"../results/sst_use_least_confident_40.json",
-        "../results/sst_use_ensemble_diff_20.json"
+        #"../results/sst_use_ensemble_diff_20.json",
+        "../results/sst_use_information_density_20.json",
+        #"../results/sst_use_information_density_20_05.json",
+        "../results/sst_use_least_conf_kmeans_20_beta=10.json"
     ]
 
     time_per_label = 3

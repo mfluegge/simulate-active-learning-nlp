@@ -1,6 +1,8 @@
 from strategies import USELogisticRegressionRandomStrategy
 from strategies import USELogisticRegressionLeastConfidentStrategy#
 from strategies import USELogisticRegressionEnsembleDisagreementStrategy
+from strategies import USELogisticRegressionInformationDensityStrategy
+from strategies import USELogisticRegressionLeastConfidentDiverseKMeansStrategy
 from experiments import run_experiment
 import pandas as pd
 import numpy as np
@@ -16,6 +18,7 @@ if __name__ == "__main__":
         texts, labels, test_size=.2, random_state=42
     )
     """
+
     strategy = USELogisticRegressionRandomStrategy(
         texts, label_per_iteration=20
     )
@@ -31,9 +34,8 @@ if __name__ == "__main__":
         dataset_name="SST",
         max_labeled_data=4000
     )
- 
     strategy = USELogisticRegressionLeastConfidentStrategy(
-        texts, label_per_iteration=20
+        texts, label_per_iteration=1
     )
 
     run_experiment(
@@ -42,10 +44,10 @@ if __name__ == "__main__":
         labels,
         eval_x,
         eval_y,
-        output_path="../results/sst_use_least_confident_20.json",
-        experiment_name="USE+LR Least Confident 20",
+        output_path="../results/sst_use_least_confident_1.json",
+        experiment_name="USE+LR Least Confident 1",
         dataset_name="SST",
-        max_labeled_data=4000
+        max_labeled_data=1500
     )
 
     strategy = USELogisticRegressionLeastConfidentStrategy(
@@ -79,7 +81,7 @@ if __name__ == "__main__":
         dataset_name="SST",
         max_labeled_data=4000
     )
-    """
+
 
 
     strategy = USELogisticRegressionEnsembleDisagreementStrategy(
@@ -94,6 +96,40 @@ if __name__ == "__main__":
         eval_y,
         output_path="../results/sst_use_ensemble_diff_20.json",
         experiment_name="USE+LR Ensemble Diff 20",
+        dataset_name="SST",
+        max_labeled_data=4000
+    )
+
+
+    strategy = USELogisticRegressionInformationDensityStrategy(
+        texts, label_per_iteration=20
+    )
+
+    run_experiment(
+        strategy,
+        texts,
+        labels,
+        eval_x,
+        eval_y,
+        output_path="../results/sst_use_information_density_20_05.json",
+        experiment_name="USE+LR Information Density 20 beta=0.5",
+        dataset_name="SST",
+        max_labeled_data=4000
+    )
+    """
+
+    strategy = USELogisticRegressionLeastConfidentDiverseKMeansStrategy(
+        texts, label_per_iteration=20
+    )
+
+    run_experiment(
+        strategy,
+        texts,
+        labels,
+        eval_x,
+        eval_y,
+        output_path="../results/sst_use_least_conf_kmeans_20_beta=10.json",
+        experiment_name="USE+LR KMeans + Least Confident 20 beta=10",
         dataset_name="SST",
         max_labeled_data=4000
     )
