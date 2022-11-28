@@ -6,7 +6,7 @@ from strategies import USELogisticRegressionLeastConfidentDiverseKMeansStrategy
 from experiments import run_experiment
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_sp
 
 if __name__ == "__main__":
     sst_data = pd.read_csv("../datasets/sst_train.tsv", sep="\t")
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         dataset_name="SST",
         max_labeled_data=4000
     )
-    """
+
 
     strategy = USELogisticRegressionLeastConfidentDiverseKMeansStrategy(
         texts, label_per_iteration=20
@@ -132,4 +132,20 @@ if __name__ == "__main__":
         experiment_name="USE+LR KMeans + Least Confident 20 beta=10",
         dataset_name="SST",
         max_labeled_data=4000
+    )
+    """
+    strategy = SetFitRandomStrategy(
+        texts, label_per_iteration=20
+    )
+
+    run_experiment(
+        strategy,
+        texts,
+        labels,
+        eval_x,
+        eval_y,
+        output_path="../results/sst_setfit_small_20_R=20.json",
+        experiment_name="SetFit Small 20 R=20",
+        dataset_name="SST",
+        max_labeled_data=500
     )
