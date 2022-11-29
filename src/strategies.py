@@ -9,7 +9,7 @@ from sklearn.cluster import KMeans
 from sentence_transformers import SentenceTransformer, InputExample, losses
 from torch.utils.data import DataLoader
 from copy import deepcopy
-
+import uncertainty
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
 
@@ -400,7 +400,7 @@ class SetFitRandomStrategy(LabelingStrategy):
 
         logging.debug("Generating training examples for SetFit model")
         train_texts = [self.texts[i] for i in self.labeled_indices]
-        input_examples = _make_setfit_examples(train_texts, np.array(self.labels), R=20)
+        input_examples = self._make_setfit_examples(train_texts, np.array(self.labels), R=20)
 
         train_dataloader = DataLoader(
             input_examples,
@@ -435,23 +435,150 @@ class SetFitRandomStrategy(LabelingStrategy):
         return pred
 
 
-def _make_setfit_examples(texts, labels, R=20):
-    # hard to decipher from the paper, but looking at the code it becomes a little clearer
-    # R likely means the number of labeling iterations
-    # and in each labeling iteration, you generate 1 positive and 1 negative example per labeled sentence
-    # so you have 2 * R * len(texts) training examples for contrastive training
-    training_examples = []
-    for class_label in np.unique(labels):
-        class_texts = [texts[i] for i in np.where(labels == class_label)[0]]
-        outside_class_texts = [texts[i] for i in np.where(labels != class_label)[0]]
+    def _make_setfit_examples(self, texts, labels, R=20):
+        # hard to decipher from the paper, but looking at the code it becomes a little clearer
+        # R likely means the number of labeling iterations
+        # and in each labeling iteration, you generate 1 positive and 1 negative example per labeled sentence
+        # so you have 2 * R * len(texts) training examples for contrastive training
+        training_examples = []
+        for class_label in np.unique(labels):
+            class_texts = [texts[i] for i in np.where(labels == class_label)[0]]
+            outside_class_texts = [texts[i] for i in np.where(labels != class_label)[0]]
 
-        for text_in_class_ix, text in enumerate(class_texts):
-            other_in_class_texts = [t for i, t in enumerate(class_texts) if i != text_in_class_ix]
+            for text_in_class_ix, text in enumerate(class_texts):
+                other_in_class_texts = [t for i, t in enumerate(class_texts) if i != text_in_class_ix]
+                
+                positives = np.random.choice(other_in_class_texts, size=R, replace=len(other_in_class_texts) < R)
+                training_examples += [InputExample(texts=[text, other_text], label=1.0) for other_text in positives]
             
-            positives = np.random.choice(other_in_class_texts, size=R, replace=len(other_in_class_texts) < R)
-            training_examples += [InputExample(texts=[text, other_text], label=1.0) for other_text in positives]
-        
-            negatives = np.random.choice(outside_class_texts, size=R, replace=len(outside_class_texts) < R)
-            training_examples += [InputExample(texts=[text, other_text], label=0.0) for other_text in negatives]
+                negatives = np.random.choice(outside_class_texts, size=R, replace=len(outside_class_texts) < R)
+                training_examples += [InputExample(texts=[text, other_text], label=0.0) for other_text in negatives]
 
-    return training_examples
+        return training_examples
+
+
+class SetFitStrategy(LabelingStrategy):
+    def __init__(
+        self, 
+        model_name: str ="sentence-transformers/paraphrase-mpnet-base-v2",
+        n_examples_init: int = 20,
+        use_kmeans_init: bool = True,
+        n_sample_kmeans_init: int = 10000,
+        n_examples_per_batch: int = 20,
+        uncertainty_measure: callable = uncertainty.least_confidence_score,
+        use_uncertainty: bool = True,
+        use_kmeans_diversification: bool = True,
+        kmeans_diversification_beta: int = 10,
+        backtranslation_languages: list[str] = ["es", "fr", "de"],
+        use_backtranslation: bool = True
+
+    ):
+        super().__init__(None, n_examples_per_batch)
+
+        self.model_name = model_name
+        self.n_examples_init = n_examples_init
+        self.use_kmeans_init = use_kmeans_init
+        self.n_sample_kmeans_init = 10000
+        self.n_labels_per_batch = n_labels_per_iteration
+        self.uncertainty_measure = uncertainty_measure
+        self.use_uncertainty = use_uncertainty
+        self.backtranslation_languages = backtranslation_languages
+        self.use_backtranslation = use_backtranslation
+
+        self.labeled_indices = []
+        self.labels = []
+        self.latest_clf = None
+        
+        self.text_embeddings = None
+        self.eval_text_embeddings = None
+
+     def setup_labeling(self):
+        """Implements all preparation that should be timed, i.e. everything that a real user would need to run.""" 
+        logging.debug(f"Loading sentence transformer model {self.model_name}")
+        self.base_model = SentenceTransformer(self.model_name)
+
+    def setup_prediction(self, eval_texts):
+        """Implements all preparation that should NOT be timed, i.e. everything that is only relevant for this simulation.""" 
+        logging.debug("Embedding texts for USE random strategy (prediction only)")
+        self.eval_text_embeddings = self.use(eval_texts).numpy()
+
+
+
+    def get_init_examples(self):
+        if self.use_kmeans_init:
+            return self._kmeans_init(n_clusters=self.n_examples_init)
+        
+        else:
+            return self._random_init()
+
+            random_indices = np.random.choice(np.arange(len(self.texts)), size=10, replace=False)
+        
+        return random_indices
+
+    def _kmeans_init(self, n_clusters):
+        return None
+
+
+
+
+
+    def get_next_examples(self):
+        unlabeled_indices = np.setdiff1d(
+            np.arange(len(self.texts)), self.labeled_indices
+        )
+
+        if len(unlabeled_indices) <= self.label_per_iteration:
+            return unlabeled_indices
+
+        next_indices = np.random.choice(
+            unlabeled_indices,
+            size=self.label_per_iteration, 
+            replace=False
+        )
+
+        return next_indices
+    
+    def add_labels(self, indices, labels):
+        self.labeled_indices += indices
+        self.labels += labels
+    
+    def predict(self, eval_texts):
+        logging.debug("Training SetFit model with labeled examples for prediction")
+        logging.debug("Cloning sentence transformer model")
+        model = SentenceTransformer("sentence-transformers/paraphrase-mpnet-base-v2")#deepcopy(self.sent_trf)
+
+        logging.debug("Generating training examples for SetFit model")
+        train_texts = [self.texts[i] for i in self.labeled_indices]
+        input_examples = _make_setfit_examples(train_texts, np.array(self.labels), R=20)
+
+        train_dataloader = DataLoader(
+            input_examples,
+            shuffle=True, 
+            batch_size=16
+        )
+
+        train_loss = losses.CosineSimilarityLoss(model)
+
+        logging.debug("Fitting sentence transformer")
+        model.fit(
+            train_objectives=[(train_dataloader, train_loss)],
+            epochs=1,
+            optimizer_params={"lr": 2e-5},
+            warmup_steps=int(len(train_dataloader) * 0.1),
+        )
+
+        model.eval()
+
+        logging.debug("Encoding labeled sentences")
+        train_embs = model.encode(train_texts)
+
+        logging.debug("Training classification head")
+        clf = LogisticRegression(random_state=42).fit(train_embs, self.labels)
+
+        logging.debug("Encoding validation texts")
+        eval_embs = model.encode(eval_texts)
+
+        logging.debug("Predicting validation texts")
+        pred = clf.predict(eval_embs)
+
+        return pred
