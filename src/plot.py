@@ -15,7 +15,8 @@ if __name__ == "__main__":
         #"../results/sst_use_information_density_20_05.json",
         "../results/sst_use_least_conf_kmeans_20_beta=10.json",
         #"../results/sst_setfit_small_20_R=10.json",
-        "../results/sst_setfit_small_20_R=10_low_lr.json"
+        "../results/sst_setfit_small_20_R=10_low_lr.json",
+        "../results/sst_setfit_big_20_R=20_low_lr.json"
     ]
 
     time_per_label = 3
